@@ -11,6 +11,12 @@ This code is based on Deepmind's [Kinetics-I3D](https://github.com/deepmind/kine
 
 ## Note
 This code was written for PyTorch 0.3. Version 0.4 and newer may cause issues.
+More detailed information about the charaders dataset could refer the link: https://allenai.org/plato/charades/README.txt 
+
+## Video Proprocessing
+For different mode we have differnt methods to preprocess the videos. For mode is "rgb", we need to transform the videos to images by using the tools [ffmpeg](ffmpeg), and we put the images in the directory [data/changing_tire_00002_rgb](/data/changing_tire_00002_rgb) and [/data/changing_tire_00003_rgb](/data/changing_tire_00003_rgb).
+
+For mode is "flow", we use need to use dense-flow.py to generate images which may take 30 minites to finish.  We set the maximum of optical flows to 20 referred by the https://allenai.org/plato/charades/README.txt. We put all the images in the directory [/data/flows/changing_tire_0002](/data/flows/changing_tire_0002) and [/data/flows/changing_tire_0003](/data/flows/changing_tire_0003).
 
 
 # Fine-tuning and Feature Extraction
@@ -21,5 +27,6 @@ We provide code to extract I3D features and fine-tune I3D for charades. Our fine
 
 This relied on having the optical flow and RGB frames extracted and saved as images on dist. [charades_dataset.py](charades_dataset.py) contains our code to load video segments for training.
 
+
 ## Feature Extraction
-[extract_features.py](extract_features.py) contains the code to load a pre-trained I3D model and extract the features and save the features as numpy arrays. The [charades_dataset_full.py](charades_dataset_full.py) script loads an entire video to extract per-segment features.
+The [demo_extract_features.py](demo_extract_features.py) script loads two entire videos to extract per-segment features. The features of the two videos are in the directory [/output](/output). 

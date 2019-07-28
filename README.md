@@ -11,12 +11,14 @@ This code is based on Deepmind's [Kinetics-I3D](https://github.com/deepmind/kine
 
 ## Note
 This code was written for PyTorch 0.3. Version 0.4 and newer may cause issues.
-More detailed information about the charaders dataset could refer the link: https://allenai.org/plato/charades/README.txt 
+More detailed information about the charaders dataset could refer the link: https://allenai.org/plato/charades/README.txt This link is very important to help you understand the codes especially for the video preprocessing part!
 
-## Video Proprocessing
+## Video Proprocessing[inculde my own videos to implementation]
+I add this section because the author's code not include this part which cost me a long time to figure when I started to learn about the I3D model. 
+
 For different mode we have differnt methods to preprocess the videos. For mode is "rgb", we need to transform the videos to images by using the tools [ffmpeg](ffmpeg), and we put the images in the directory [data/changing_tire_00002_rgb](/data/changing_tire_00002_rgb) and [/data/changing_tire_00003_rgb](/data/changing_tire_00003_rgb).
 
-For mode is "flow", we use need to use dense-flow.py to generate images which may take 30 minites to finish.  We set the maximum of optical flows to 20 referred by the https://allenai.org/plato/charades/README.txt. We put all the images in the directory [/data/flows/changing_tire_0002](/data/flows/changing_tire_0002) and [/data/flows/changing_tire_0003](/data/flows/changing_tire_0003).
+For mode is "flow", we use need to use dense-flow.py to generate images which may take 30 minites to finish.  We set the maximum of optical flows to 20 referred by the https://allenai.org/plato/charades/README.txt. We put all the images in the directory [/data/flows/changing_tire_0002](/data/flows/changing_tire_0002) and [/data/flows/changing_tire_0003](/data/flows/changing_tire_0003). 
 
 
 # Fine-tuning and Feature Extraction
